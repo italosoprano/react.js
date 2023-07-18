@@ -1,31 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+
 
 export default function App(){
 
-  const [form, setform]=useState({'nome':'', 'idade':'', 'sexo':''})
+  const [nome, setNome]=useState()
 
-  const handleChangeName = (e) =>{
-    if(e.target.getAttribute('name') == 'fname') {
-      setform({'name':e.target.value, 'idade': form.idade, 'sexo': form.sexo})
-    } else if(e.target.getAttribute('name') == 'fidade') {
-      setform({'name': form.name, 'idade': e.target.value, 'sexo': form.sexo})
-    } else if(e.target.getAttribute('name') == 'fsexo') {
-      setform({'name': form.name, 'idade': form.idade, 'sexo': e.target.value})
-    }
+  const armazenar = (chave, valor) =>{
+    localStorage.setItem(chave, valor)
   }
+
+  const consultar = (chave) =>{
+    alert(localStorage.getItem(chave))
+  }
+
+  const apagar = (chave)=>{
+    localStorage.removeItem(chave)
+  }
+
 
   return(
     <>
-      <label>Nome: </label>
-      <input type='text' name='fname' value={form.nome} onChange={(e)=>handleChangeName(e)}/>
-      <label>Idade: </label>
-      <input type='text' name='fidade' value={form.idade} onChange={(e)=>handleChangeName(e)}/>
-      <label>Sexo: </label>
-      <input type='text' name='fsexo' value={form.sexo} onChange={(e)=>handleChangeName(e)}/>
-
-      <p>Nome digitando: {form.name}</p>
-      <p>Idade digitando: {form.idade}</p>
-      <p>Sexo digitando: {form.sexo}</p>
+      <label>Digite um nome: </label>
+      <input type='text' value={nome} onChange={(e)=>setNome(e.target.value)}/>
+      <button onClick={()=>armazenar('ls_nome', nome)} >Gravar Nome</button>
+      <button onClick={()=>consultar('ls_nome')} >Ver Nome</button>
+      <button onClick={()=>apagar('ls_nome')} >Remover Nome</button>
     </>
   )
 }
