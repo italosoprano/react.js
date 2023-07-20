@@ -1,32 +1,52 @@
 import React, {useState, useEffect} from 'react'
 
+const tabelaImc = () =>{
+  return (
+    <table border='1' style={{borderCollapse: 'collapse', justifyContent:'center', alignItems: 'center'}}>
+      <thead>
+        <tr>
+          <th>Classificação</th>
+          <th>IMC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Abaixo do Peso</td>
+          <td>Abaixo de 18,5</td>
+        </tr>
+        <tr>
+          <td>Peso Normal</td>
+          <td>Entre 18,5 e 24,9</td>
+        </tr>
+        <tr>
+          <td>Sobrepeso</td>
+          <td>Entre 25 e 29,9</td>
+        </tr>
+        <tr>
+          <td>Obesidade Grau I</td>
+          <td>Entre 30 e 34,9</td>
+        </tr>
+        <tr>
+          <td>Obesidade Grau II</td>
+          <td>Entre 35 e 39,9</td>
+        </tr>
+        <tr>
+          <td>Obesidade Grau III ou Mórbida</td>
+          <td>Maior que 40</td>
+        </tr>
+      </tbody>
+    </table>
+  )
+}
+
 export default function App(){
 
-  const carros = [
-    {preço: '', modelo: 'Camaro', marca: 'Chevrolet'},
-    {preço: '', modelo: 'Challenger', marca: 'Dodge'},
-    {preço: '', modelo: 'Charger', marca: 'Dodge'},
-    {preço: '', modelo: 'RX7', marca: 'Mazda'},
-    {preço: '', modelo: '240z', marca: 'Nissan'},
-    {preço: '', modelo: '350z', marca: 'Nissan'},
-    {preço: '', modelo: 'Supra', marca: 'Nissan'},
-    {preço: '', modelo: 'Evolution', marca: 'Mistubishi'},
-    {preço: '', modelo: 'Skyline', marca: 'Nissan'},
-    {preço: '', modelo: 'FIT', marca: 'Honda'},
-    {preço: '', modelo: 'NSX', marca: 'Honda'},
-    {preço: '', modelo: 'Viper', marca: 'Dodge'},
-    {preço: '', modelo: 'Mustang', marca: 'Ford'},
-    {preço: '', modelo: 'M3', marca: 'BMW'},
-    {preço: '', modelo: 'Carrera GT', marca: 'Porche'},
-    {preço: '', modelo: 'Gallardo', marca: 'Lamborghini'},
-    {preço: '', modelo: 'Murciellargo', marca: 'Lamborghini'},
-    {preço: '', modelo: '911 GT2', marca: 'Porsche'},
-    {preço: '', modelo: '', marca: ''},
-  ]
 
   return(
     <>
-      
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh'}}>
+        {tabelaImc()}
+      </div>
     </>
   )
 }
